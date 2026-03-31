@@ -35,4 +35,14 @@ class Kategori extends CI_Controller {
         $this->Kategori_model->insert($data);
         redirect('kategori');
     }
+    public function hapus($id)
+    {
+        // if($this->Kategori_model->is_used($id)){
+        //     $this->session->set_flashdata('error', 'Kategori tidak bisa dihapus karena masih digunakan');
+        // } else {
+            $this->Kategori_model->delete($id);
+            $this->session->set_flashdata('success', 'Data Berhasil dihapus');
+        // } 
+        redirect('kategori');
+    }
 }
