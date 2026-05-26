@@ -13,6 +13,12 @@ class peminjaman extends CI_Controller{
     }
     public function index()
     {
+        $today = date('Y-m-d');
+
+$this->db->where('status', 'dipinjam');
+$this->db->where('tanggal_jatuh_tempo <', $today);
+
+$data['telat'] = $this->db->count_all_results('peminjaman');
         $data['data']= $this->Peminjaman_model->get_all();
 
         $this->load->view('templates/header');

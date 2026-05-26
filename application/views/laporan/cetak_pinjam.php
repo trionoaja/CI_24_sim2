@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <title>Cetak Laporan</title>
-
+<head>
     <style>
         body{font-family: Arial;}
         h3{ text-align: center;}

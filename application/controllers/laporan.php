@@ -32,4 +32,19 @@ class laporan extends CI_Controller {
         $this->load->view('laporan/peminjaman', $data);
         $this->load->view('templates/footer');
     }
+    public function buku()
+    {
+        $this->db->select('buku.*, kategori.nama_kategori');
+        $this->db->from('buku');
+        $this->db->join('kategori', 'kategori.id = buku.kategori_id');
+
+        $data['data'] = $this->db->get()->result();
+
+        $this->load->view('templates/header');
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/topbar');
+        $this->load->view('laporan/buku', $data);
+        $this->load->view('templates/footer');
+    }
+
 }
